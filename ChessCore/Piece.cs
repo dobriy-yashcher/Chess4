@@ -1,13 +1,15 @@
 ﻿// Turushkin Sergey, 220P, "HW_Chess-3", 13.04.22
 
+using System;
+
 namespace Chess3
 {
-    public class Piece
+    public abstract class Piece
     {
-        public int x;
-        public int y;
+        protected int x;
+        protected int y;
 
-        public Piece(string position = "A1")
+        protected Piece(string position = "A1")
         {
             x = position[0] - 65;
             y = position[1] - 49;
