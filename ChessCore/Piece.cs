@@ -2,7 +2,7 @@
 
 using System;
 
-namespace Chess3
+namespace ChessCore
 {
     public abstract class Piece
     {

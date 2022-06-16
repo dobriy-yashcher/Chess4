@@ -1,6 +1,6 @@
 ﻿// Turushkin Sergey, 220P, "HW_Chess-3", 13.04.22
 
-namespace Chess3
+namespace ChessCore
 {
     public class Pawn : Piece
     {
