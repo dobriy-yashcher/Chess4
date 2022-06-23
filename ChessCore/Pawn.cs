@@ -5,6 +5,7 @@ namespace ChessCore
     public class Pawn : Piece
     {
         public Pawn(string position = "A1") : base(position) { }
+        public Pawn(int x = 0, int y = 0) : base(x, y) { }
 
         public override bool isRightMove(int x1, int y1)
         {

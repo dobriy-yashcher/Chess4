@@ -9,10 +9,15 @@ namespace ChessCore
         protected int x;
         protected int y;
 
-        protected Piece(string position = "A1")
+        public Piece(string position = "A1")
         {
             x = position[0] - 65;
             y = position[1] - 49;
+        }
+        public Piece(int x = 0, int y = 0)
+        {
+            this.x = x;
+            this.y = y;
         }
 
         public override string ToString()
@@ -20,9 +25,15 @@ namespace ChessCore
             return $"{Convert.ToChar(x + 65)}{y + 1}";
         }
 
-        public virtual bool isRightMove(int x1, int y1)
+        public abstract bool isRightMove(int x1, int y1);
+
+        public virtual void Move(int x1, int y1)
         {
-            return false;
+            if (isRightMove(x1, y1))
+            {
+                x = x1;
+                y = y1;
+            }
         }
 
         public virtual void Move(string position)
