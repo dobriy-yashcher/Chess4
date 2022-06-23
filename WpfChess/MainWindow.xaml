@@ -5,265 +5,137 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfChess"
         mc:Ignorable="d"
-        Title="Chess" Height="800" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
-    <Grid>
+        Title="ChessBoard" Height="550" Width="650" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style x:Key="DeskField">
+            <Setter Property="Control.FontSize" Value="18" />
+            <Setter Property="Control.Margin" Value="0" />
+            <Setter Property="Control.BorderThickness" Value="0" />
+            <EventSetter Event="Button.Click" Handler="Field_Click" />
+            <EventSetter Event="Button.MouseEnter" Handler="Button_MouseEnter" />
+            <EventSetter Event="Button.MouseLeave" Handler="Button_MouseLeave" />
+        </Style>
+        <Style x:Key="BlackField" BasedOn="{StaticResource DeskField}">
+            <Setter Property="Control.Background" Value="Black" />
+            <Setter Property="Control.Foreground" Value="White" />
+        </Style>
+        <Style x:Key="WhiteField" BasedOn="{StaticResource DeskField}">
+            <Setter Property="Control.Background" Value="White" />
+            <Setter Property="Control.Foreground" Value="Black" />
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="grLayout" >
         <Grid.RowDefinitions>
-            <RowDefinition Height="60*"/>
-            <RowDefinition Height="626*"/>
-            <RowDefinition Height="60*"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50*"/>
-            <ColumnDefinition Width="727*"/>
-            <ColumnDefinition Width="223*"/>
+            <ColumnDefinition Width="25"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="25"/>
+            <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="1" Grid.Row="1">
-            <Border x:Name="DeskGrid" BorderThickness="15" BorderBrush="{StaticResource BoardOutLine}" MouseDown="DeskGrid_MouseDown">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-
-                    <!-- Row 0 -->
-                    <Grid Grid.Row="0" Grid.Column="0" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="0" Grid.Column="1" Background="{StaticResource OddTile}"/>
-                    <Grid Grid.Row="0" Grid.Column="2" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="0" Grid.Column="3" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="0" Grid.Column="4" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="0" Grid.Column="5" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="0" Grid.Column="6" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="0" Grid.Column="7" Background="{StaticResource OddTile}">
-
-                    </Grid>
-
-                    <!-- Row 1 -->
-                    <Grid Grid.Row="1" Grid.Column="0" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="1" Grid.Column="1" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="1" Grid.Column="2" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="1" Grid.Column="3" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="1" Grid.Column="4" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="1" Grid.Column="5" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="1" Grid.Column="6" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="1" Grid.Column="7" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-
-                    <!-- Row 2 -->
-                    <Grid Grid.Row="2" Grid.Column="0" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="2" Grid.Column="1" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="2" Grid.Column="2" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="2" Grid.Column="3" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="2" Grid.Column="4" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="2" Grid.Column="5" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="2" Grid.Column="6" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="2" Grid.Column="7" Background="{StaticResource OddTile}">
-
-                    </Grid>
-
-                    <!-- Row 3 -->
-                    <Grid Grid.Row="3" Grid.Column="0" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="3" Grid.Column="1" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="3" Grid.Column="2" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="3" Grid.Column="3" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="3" Grid.Column="4" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="3" Grid.Column="5" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="3" Grid.Column="6" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="3" Grid.Column="7" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-
-                    <!-- Row 4 -->
-                    <Grid Grid.Row="4" Grid.Column="0" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="4" Grid.Column="1" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="4" Grid.Column="2" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="4" Grid.Column="3" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="4" Grid.Column="4" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="4" Grid.Column="5" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="4" Grid.Column="6" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="4" Grid.Column="7" Background="{StaticResource OddTile}">
-
-                    </Grid>
-
-                    <!-- Row 5 -->
-                    <Grid Grid.Row="5" Grid.Column="0" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="5" Grid.Column="1" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="5" Grid.Column="2" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="5" Grid.Column="3" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="5" Grid.Column="4" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="5" Grid.Column="5" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="5" Grid.Column="6" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="5" Grid.Column="7" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-
-                    <!-- Row 6 -->
-                    <Grid Grid.Row="6" Grid.Column="0" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="6" Grid.Column="1" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="6" Grid.Column="2" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="6" Grid.Column="3" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="6" Grid.Column="4" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="6" Grid.Column="5" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="6" Grid.Column="6" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="6" Grid.Column="7" Background="{StaticResource OddTile}">
-
-                    </Grid>
-
-                    <!-- Row 7 -->
-                    <Grid Grid.Row="7" Grid.Column="0" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="7" Grid.Column="1" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="7" Grid.Column="2" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="7" Grid.Column="3" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="7" Grid.Column="4" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="7" Grid.Column="5" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="7" Grid.Column="6" Background="{StaticResource OddTile}">
-
-                    </Grid>
-                    <Grid Grid.Row="7" Grid.Column="7" Background="{StaticResource EvenTile}">
-
-                    </Grid>
-                </Grid>
-            </Border>
-        </Grid>
-
-
-        <Grid Grid.Column="2" Grid.Row="1">
-            <Border BorderThickness="1" BorderBrush="{StaticResource BoardOutLine}">
-                <ComboBox x:Name="BoxShapes" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,15,0,0" Width="203" Height="33" FontSize="16" SelectionChanged="BoxShapes_SelectionChanged" >
-                    <ListBoxItem Content="King" FontSize="16"/>
-                    <ListBoxItem Content="Queen"/>
-                    <ListBoxItem Content="Bishop"/>
-                    <ListBoxItem Content="Knight"/>
-                    <ListBoxItem Content="Rook"/>
-                    <ListBoxItem Content="Pawn"/>
-                </ComboBox>
-
-            </Border>
-        </Grid>
+        <Button Grid.Column="1" Grid.Row="1" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="2" Grid.Row="1" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="3" Grid.Row="1" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="4" Grid.Row="1" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="5" Grid.Row="1" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="6" Grid.Row="1" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="7" Grid.Row="1" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="8" Grid.Row="1" Style="{StaticResource BlackField}" Content="" />
+
+        <Button Grid.Column="1" Grid.Row="2" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="2" Grid.Row="2" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="3" Grid.Row="2" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="4" Grid.Row="2" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="5" Grid.Row="2" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="6" Grid.Row="2" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="7" Grid.Row="2" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="8" Grid.Row="2" Style="{StaticResource WhiteField}" Content="" />
+
+        <Button Grid.Column="1" Grid.Row="3" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="2" Grid.Row="3" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="3" Grid.Row="3" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="4" Grid.Row="3" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="5" Grid.Row="3" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="6" Grid.Row="3" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="7" Grid.Row="3" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="8" Grid.Row="3" Style="{StaticResource BlackField}" Content="" />
+
+        <Button Grid.Column="1" Grid.Row="4" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="2" Grid.Row="4" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="3" Grid.Row="4" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="4" Grid.Row="4" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="5" Grid.Row="4" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="6" Grid.Row="4" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="7" Grid.Row="4" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="8" Grid.Row="4" Style="{StaticResource WhiteField}" Content="" />
+
+        <Button Grid.Column="1" Grid.Row="5" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="2" Grid.Row="5" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="3" Grid.Row="5" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="4" Grid.Row="5" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="5" Grid.Row="5" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="6" Grid.Row="5" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="7" Grid.Row="5" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="8" Grid.Row="5" Style="{StaticResource BlackField}" Content="" />
+
+        <Button Grid.Column="1" Grid.Row="6" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="2" Grid.Row="6" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="3" Grid.Row="6" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="4" Grid.Row="6" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="5" Grid.Row="6" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="6" Grid.Row="6" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="7" Grid.Row="6" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="8" Grid.Row="6" Style="{StaticResource WhiteField}" Content="" />
+
+        <Button Grid.Column="1" Grid.Row="7" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="2" Grid.Row="7" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="3" Grid.Row="7" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="4" Grid.Row="7" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="5" Grid.Row="7" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="6" Grid.Row="7" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="7" Grid.Row="7" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="8" Grid.Row="7" Style="{StaticResource BlackField}" Content="" />
+
+        <Button Grid.Column="1" Grid.Row="8" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="2" Grid.Row="8" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="3" Grid.Row="8" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="4" Grid.Row="8" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="5" Grid.Row="8" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="6" Grid.Row="8" Style="{StaticResource WhiteField}" Content="" />
+        <Button Grid.Column="7" Grid.Row="8" Style="{StaticResource BlackField}" Content="" />
+        <Button Grid.Column="8" Grid.Row="8" Style="{StaticResource WhiteField}" Content="" />
+
+        <Border Grid.Row="1" Grid.RowSpan="8" Grid.Column="1" Grid.ColumnSpan="8"
+                BorderBrush="Black" BorderThickness="1"/>
+
+        <ComboBox x:Name="lbShapes" HorizontalAlignment="Center" VerticalAlignment="Top"
+                  Margin="0,15,0,0" Width="80" Height="33" FontSize="16"
+                  Grid.Column="10" Grid.Row="1">
+            <ListBoxItem Content="King"/>
+            <ListBoxItem Content="Queen"/>
+            <ListBoxItem Content="Bishop"/>
+            <ListBoxItem Content="Rook"/>
+            <ListBoxItem Content="Knight"/>
+            <ListBoxItem Content="Pawn"/>
+        </ComboBox>
+        <Button x:Name="btn_Clear" Grid.Column="10" Content="Clear" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Height="26" Width="80" Click="btn_Clear_Click"/>
     </Grid>
 </Window>

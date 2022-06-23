@@ -19,7 +19,7 @@ namespace Chess3
 
         public static void KingMove()
         {
-            var piece = new King();
+            var piece = new King("A1");
 
             piece.Move("A2");
             Debug.Assert(piece.ToString() == "A2");
@@ -32,7 +32,7 @@ namespace Chess3
 
         public static void QueenMove()
         {
-            var piece = new Queen();
+            var piece = new Queen("A1");
 
             piece.Move("H1");
             Debug.Assert(piece.ToString() == "H1");
@@ -45,7 +45,7 @@ namespace Chess3
 
         public static void BishopMove()
         {
-            var piece = new Bishop();
+            var piece = new Bishop("A1");
 
             piece.Move("E5");
             Debug.Assert(piece.ToString() == "E5");
@@ -58,7 +58,7 @@ namespace Chess3
 
         public static void KnightMove()
         {
-            var piece = new Knight();
+            var piece = new Knight("A1");
 
             piece.Move("B3");
             Debug.Assert(piece.ToString() == "B3");
@@ -71,7 +71,7 @@ namespace Chess3
 
         public static void RookMove()
         {
-            var piece = new Rook();
+            var piece = new Rook("A1");
 
             piece.Move("F1");
             Debug.Assert(piece.ToString() == "F1");
@@ -84,7 +84,7 @@ namespace Chess3
 
         public static void PawnMove()
         {
-            var piece = new Pawn();
+            var piece = new Pawn("A1");
 
             piece.Move("A2");
             Debug.Assert(piece.ToString() == "A2");

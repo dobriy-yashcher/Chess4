@@ -6,8 +6,8 @@ namespace ChessCore
 {
     public abstract class Piece
     {
-        protected int x;
-        protected int y;
+        public int x;
+        public int y;
 
         public Piece(string position = "A1")
         {
