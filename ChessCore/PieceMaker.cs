@@ -6,46 +6,46 @@ using System.Threading.Tasks;
 
 namespace ChessCore
 {
-    class PieceMaker
+    public class PieceMaker
     {
-        static public Piece Make(string pieceCode, int x, int y)
+        static public Piece Make(string pieceCode, int x = 0, int y = 0)
         {
             Piece piece = null;
 
             switch (pieceCode)
             {
                 case "King":
-                case "1":
+                case "0":
                 case "K":
                     piece = new King(x, y);
                     break;
 
                 case "Queen":
-                case "2":
+                case "1":
                 case "Q":
                     piece = new Queen(x, y);
                     break;
 
                 case "Bishop":
-                case "3":
+                case "2":
                 case "B":
                     piece = new Bishop(x, y);
                     break;
 
                 case "Knight":
-                case "4":
+                case "3":
                 case "N":
                     piece = new Knight(x, y);
                     break;
 
                 case "Rook":
-                case "5":
+                case "4":
                 case "R":
                     piece = new Rook(x, y);
                     break;
 
                 case "Pawn":
-                case "6":
+                case "5":
                 case "P":
                     piece = new Pawn(x, y);
                     break;
@@ -56,7 +56,7 @@ namespace ChessCore
             return piece;
         }
 
-        static public Piece Make(int pieceCode, int x, int y)
+        static public Piece Make(int pieceCode, int x = 0, int y = 0)
         {
             return Make(pieceCode.ToString(), x, y);
         }

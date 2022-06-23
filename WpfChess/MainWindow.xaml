@@ -19,7 +19,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="1" Grid.Row="1">
-            <Border BorderThickness="15" BorderBrush="{StaticResource BoardOutLine}">
+            <Border x:Name="DeskGrid" BorderThickness="15" BorderBrush="{StaticResource BoardOutLine}" MouseDown="DeskGrid_MouseDown">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -46,9 +46,7 @@
                     <Grid Grid.Row="0" Grid.Column="0" Background="{StaticResource EvenTile}">
 
                     </Grid>
-                    <Grid Grid.Row="0" Grid.Column="1" Background="{StaticResource OddTile}">
-
-                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="1" Background="{StaticResource OddTile}"/>
                     <Grid Grid.Row="0" Grid.Column="2" Background="{StaticResource EvenTile}">
 
                     </Grid>
@@ -256,7 +254,15 @@
 
         <Grid Grid.Column="2" Grid.Row="1">
             <Border BorderThickness="1" BorderBrush="{StaticResource BoardOutLine}">
-                
+                <ComboBox x:Name="BoxShapes" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,15,0,0" Width="203" Height="33" FontSize="16" SelectionChanged="BoxShapes_SelectionChanged" >
+                    <ListBoxItem Content="King" FontSize="16"/>
+                    <ListBoxItem Content="Queen"/>
+                    <ListBoxItem Content="Bishop"/>
+                    <ListBoxItem Content="Knight"/>
+                    <ListBoxItem Content="Rook"/>
+                    <ListBoxItem Content="Pawn"/>
+                </ComboBox>
+
             </Border>
         </Grid>
     </Grid>

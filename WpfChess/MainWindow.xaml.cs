@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChessCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,23 @@ namespace WpfChess
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Piece piece = null;
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void BoxShapes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            piece = PieceMaker.Make(BoxShapes.SelectedIndex);
+            //MessageBox.Show(BoxShapes.SelectedIndex.ToString());
+        }
+
+        private void DeskGrid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+            //MessageBox.Show(DeskGrid.);
         }
     }
 }
